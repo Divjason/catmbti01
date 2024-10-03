@@ -22,6 +22,18 @@ const Title = styled.div`
   padding: 8px 16px;
   background: crimson;
   border-radius: 8px;
+
+  @media (max-width: 780px) {
+    width: 300px;
+    font-size: 24px;
+    padding: 6px 12px;
+  }
+
+  @media (max-width: 360px) {
+    width: 200px;
+    font-size: 18px;
+    padding: 4px 8px;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -34,6 +46,24 @@ const ButtonGroup = styled.div`
     height: 200px;
     font-size: 18px;
   }
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+    & > button {
+      width: 300px;
+      height: 150px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    flex-direction: column;
+    & > button {
+      width: 200px;
+      height: 100px;
+      font-size: 14px;
+    }
+  }
 `;
 
 const Question = () => {
@@ -45,48 +75,6 @@ const Question = () => {
     { id: "JP", score: 0 },
   ]);
   const navigate = useNavigate();
-
-  // const handleClickButtonA = (no, type) => {
-  //   if (type === "EI") {
-  //     const addScore = totalScore[0].score + no;
-  //     const newObject = { id: "EI", score: addScore };
-  //     totalScore.splice(0, 1, newObject);
-  //   } else if (type === "SN") {
-  //     const addScore = totalScore[1].score + no;
-  //     const newObject = { id: "SN", score: addScore };
-  //     totalScore.splice(1, 1, newObject);
-  //   } else if (type === "TF") {
-  //     const addScore = totalScore[2].score + no;
-  //     const newObject = { id: "TF", score: addScore };
-  //     totalScore.splice(2, 1, newObject);
-  //   } else {
-  //     const addScore = totalScore[3].score + no;
-  //     const newObject = { id: "JP", score: addScore };
-  //     totalScore.splice(3, 1, newObject);
-  //   }
-  //   setQuestionNo(questionNo + 1);
-  // };
-
-  // const handleClickButtonB = (no, type) => {
-  //   if (type === "EI") {
-  //     const addScore = totalScore[0].score + no;
-  //     const newObject = { id: "EI", score: addScore };
-  //     totalScore.splice(0, 1, newObject);
-  //   } else if (type === "SN") {
-  //     const addScore = totalScore[1].score + no;
-  //     const newObject = { id: "SN", score: addScore };
-  //     totalScore.splice(1, 1, newObject);
-  //   } else if (type === "TF") {
-  //     const addScore = totalScore[2].score + no;
-  //     const newObject = { id: "TF", score: addScore };
-  //     totalScore.splice(2, 1, newObject);
-  //   } else {
-  //     const addScore = totalScore[3].score + no;
-  //     const newObject = { id: "JP", score: addScore };
-  //     totalScore.splice(3, 1, newObject);
-  //   }
-  //   setQuestionNo(questionNo + 1);
-  // };
 
   const handleClickButton = (no, type) => {
     const newScore = totalScore.map((s) =>
